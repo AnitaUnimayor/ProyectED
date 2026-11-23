@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import { pedir } from "./api";
 import Pendulos from "./components/Pendulos";
+import Presentacion from "./components/Presentacion";
 import "./App.css";
 
 // ------------------------------------------------------------
@@ -146,6 +147,9 @@ function Deslizador({ etiqueta, valor, min, max, paso, onChange }) {
 // Aplicación principal
 // ------------------------------------------------------------
 export default function App() {
+  const [vista, setVista] = useState("presentacion");
+  const [slideIndex, setSlideIndex] = useState(0);
+
   // ============================================================
   // CONTROLES
   // ============================================================
@@ -229,6 +233,16 @@ export default function App() {
 
   const margen = { top: 10, right: 20, left: 10, bottom: 25 };
 
+  if (vista === "presentacion") {
+    return (
+      <Presentacion
+        slideActual={slideIndex}
+        onCambiarSlide={setSlideIndex}
+        onVolverAlSimulador={() => setVista("simulador")}
+      />
+    );
+  }
+
   return (
     <div className="app">
       {/* ---------- Encabezado ---------- */}
@@ -238,6 +252,22 @@ export default function App() {
           <p>Ecuaciones diferenciales · Unidad 3 · Euler, Heun y Runge-Kutta 4</p>
         </div>
         <div className="chips">
+          <button
+            onClick={() => setVista("presentacion")}
+            style={{
+              background: "#421d24",
+              color: "#ffffff",
+              border: "none",
+              padding: "6px 14px",
+              borderRadius: "999px",
+              fontSize: "12.5px",
+              fontWeight: "600",
+              cursor: "pointer",
+              boxShadow: "0 2px 6px rgba(66, 29, 36, 0.2)"
+            }}
+          >
+            🎓 Modo Presentación Institucional
+          </button>
           <span className="chip">
             <i className={`punto ${sol.error ? "mal" : "bien"}`} />
             {sol.error ? "API sin conexión" : "API conectada"}

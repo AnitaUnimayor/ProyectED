@@ -1,0 +1,928 @@
+/* Presentacion.css - Sistema de diseño institucional UNIMAYOR + Editorial Tecnológico */
+:root {
+  /* Identidad Oficial UNIMAYOR (DESIGNCOLEGIOMAYOR.md) */
+  --uni-blue: #02468F;         /* Azul Primario UNIMAYOR */
+  --uni-gold: #FFCF01;         /* Amarillo Oro UNIMAYOR */
+  --uni-night: #080C31;        /* Azul Profundo / Noche */
+  --uni-blue-med: #0C467F;     /* Azul Medio de Soporte */
+  --uni-cyan: #00A8E8;         /* Cian Tecnológico Exacto */
+  
+  /* Superficies y Neutros Limpios (DESIGN.md) */
+  --uni-bg: #F4F6F9;           /* Lienzo de Cálculo Técnico */
+  --uni-card: #FFFFFF;         /* Superficie de Tarjetas */
+  --uni-border: #D8E1EB;       /* Borde Técnico Sutil */
+  --uni-border-subtle: #E2E8F0;
+  --uni-text: #1D1D1B;         /* Texto Principal Alta Legibilidad */
+  --uni-text-muted: #475569;   /* Texto Secundario Pizarra */
+  --uni-error: #DC2626;        /* Alerta Inestabilidad */
+  --uni-success: #059669;      /* Estabilidad Conservativa */
+
+  /* Radios Geométricos Refinados */
+  --uni-radius-card: 16px;
+  --uni-radius-pill: 999px;
+  --uni-radius-btn: 10px;
+  --uni-radius-tab: 8px;
+}
+
+/* Contenedor Principal con Retícula Cartesiana de Ingeniería */
+.presentation-container {
+  min-height: 100vh;
+  background-color: var(--uni-bg);
+  background-image: radial-gradient(rgba(2, 70, 143, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  color: var(--uni-text);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Barra de progreso superior en Oro y Azul UNIMAYOR */
+.pres-progress-bar-bg {
+  position: absolute;
+  top: 67px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(2, 70, 143, 0.12);
+  z-index: 101;
+}
+
+.pres-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--uni-blue), var(--uni-gold));
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header Institucional */
+.pres-header {
+  position: sticky;
+  top: 0;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--uni-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(8, 12, 49, 0.03);
+}
+
+.pres-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pres-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.pres-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pres-univ-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.pres-fac-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--uni-text-muted);
+  line-height: 1.2;
+}
+
+.pres-header-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pres-speaker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--uni-radius-pill);
+  background: #FFFFFF;
+  border: 1px solid var(--uni-border);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--uni-blue);
+  box-shadow: 0 1px 4px rgba(2, 70, 143, 0.05);
+}
+
+.pres-speaker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--uni-gold);
+}
+
+.pres-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pres-tab-btn {
+  padding: 6px 11px;
+  border-radius: var(--uni-radius-tab);
+  border: 1px solid var(--uni-border);
+  background: #FFFFFF;
+  color: var(--uni-text);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pres-tab-btn:hover {
+  background: #F1F5F9;
+  border-color: var(--uni-blue);
+  color: var(--uni-blue);
+  transform: translateY(-1px);
+}
+
+.pres-tab-btn.active {
+  background: var(--uni-blue);
+  color: #FFFFFF;
+  border-color: var(--uni-blue);
+  box-shadow: 0 2px 8px rgba(2, 70, 143, 0.25);
+}
+
+.pres-switch-view-btn {
+  padding: 7px 15px;
+  border-radius: var(--uni-radius-pill);
+  background: var(--uni-blue);
+  color: #FFFFFF;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(2, 70, 143, 0.2);
+}
+
+.pres-switch-view-btn:hover {
+  background: #013773;
+  transform: translateY(-1px);
+}
+
+/* Área Principal con Transición Suave entre Diapositivas */
+.pres-main-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px 84px;
+  max-width: 1540px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pres-card {
+  background: var(--uni-card);
+  border: 1px solid var(--uni-border);
+  border-radius: 18px;
+  padding: 38px 46px;
+  box-shadow: 0 4px 28px rgba(8, 12, 49, 0.06);
+  width: 100%;
+  animation: presSlideTransition 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes presSlideTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide 1 - Portada Institucional Tecnológica (Lienzo Limpio Oficial UNIMAYOR) */
+.pres-cover-card-dark {
+  background: #FFFFFF;
+  border: 1.5px solid var(--uni-border);
+  border-top: 5px solid var(--uni-gold);
+  border-left: 5px solid var(--uni-blue);
+  color: var(--uni-text);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 32px rgba(8, 12, 49, 0.07);
+}
+
+.pres-cover-card-dark::before {
+  display: none;
+}
+
+.pres-cover-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: center;
+}
+
+.pres-badge-header {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: #EFF6FF;
+  border: 1.5px solid var(--uni-blue);
+  border-radius: var(--uni-radius-pill);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--uni-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+}
+
+.pres-cover-title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #080C31;
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
+}
+
+.pres-cover-title strong {
+  color: var(--uni-blue);
+  font-weight: 800;
+}
+
+.pres-cover-desc {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #475569;
+  max-width: 660px;
+  margin-bottom: 24px;
+}
+
+.pres-team-box {
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--uni-border-subtle);
+}
+
+.pres-team-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  margin-bottom: 10px;
+}
+
+.pres-team-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pres-team-chip {
+  padding: 7px 16px;
+  border-radius: var(--uni-radius-pill);
+  background: #F8FAFC;
+  border: 1.5px solid var(--uni-border);
+  font-size: 13px;
+  font-weight: 700;
+  color: #080C31;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.pres-team-chip:hover {
+  background: #EFF6FF;
+  border-color: var(--uni-blue);
+  transform: translateY(-1px);
+}
+
+.pres-team-chip span {
+  color: #D97706;
+  font-size: 12px;
+}
+
+/* Columna del Escudo UNIMAYOR */
+.pres-cover-crest-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  background: #F8FAFC;
+  border-radius: var(--uni-radius-card);
+  border: 1.5px solid var(--uni-border);
+  box-shadow: 0 4px 14px rgba(8, 12, 49, 0.03);
+}
+
+.pres-crest-capsule {
+  background: transparent;
+  padding: 4px;
+  border-radius: 12px;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pres-crest-img {
+  max-width: 170px;
+  height: auto;
+  display: block;
+}
+
+.pres-stack-box {
+  width: 100%;
+  border-top: 1.5px solid var(--uni-border-subtle);
+  padding-top: 14px;
+}
+
+.pres-stack-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.pres-stack-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.pres-badge {
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #FFFFFF;
+  border: 1px solid var(--uni-border);
+  color: var(--uni-text);
+}
+
+.pres-badge.back {
+  background: #EFF6FF;
+  border-color: #93C5FD;
+  color: #1E40AF;
+}
+
+.pres-badge.front {
+  background: #FEFCE8;
+  border-color: #FDE047;
+  color: #854D0E;
+}
+
+/* Encabezados de Diapositivas Estándar */
+.pres-slide-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--uni-border);
+  padding-bottom: 14px;
+}
+
+.pres-slide-category {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  margin-bottom: 4px;
+}
+
+.pres-slide-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--uni-night);
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+
+.pres-slide-title strong {
+  font-weight: 800;
+  color: var(--uni-blue);
+}
+
+.pres-slide-speaker-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #F1F5F9;
+  border: 1px solid var(--uni-border);
+  border-radius: var(--uni-radius-pill);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--uni-blue);
+}
+
+/* Layouts divididos (Split Grid) */
+.pres-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.pres-split-grid.uneven-left {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.pres-split-grid.uneven-right {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+/* Bloques de Código en Azul Profundo UNIMAYOR (#080C31) */
+.pres-code-card {
+  background: var(--uni-night);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(2, 70, 143, 0.35);
+  box-shadow: 0 4px 14px rgba(8, 12, 49, 0.08);
+}
+
+.pres-code-header {
+  background: #050821;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pres-code-filename {
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pres-code-filename::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--uni-gold);
+}
+
+.pres-code-tag {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  color: #CBD5E1;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.pres-code-body {
+  margin: 0;
+  padding: 16px;
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #F8FAFC;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Paneles de Contenido y Fórmulas Tipo Cuaderno Matemático */
+.pres-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pres-math-box {
+  background: #FFFFFF;
+  border: 1px solid var(--uni-border);
+  border-left: 4px solid var(--uni-blue);
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(8, 12, 49, 0.02);
+}
+
+.pres-math-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pres-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pres-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--uni-text);
+}
+
+.pres-bullet {
+  color: var(--uni-blue);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.pres-highlight {
+  background: #F8FAFC;
+  border-left: 4px solid var(--uni-gold);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 13.5px;
+  color: var(--uni-text);
+  line-height: 1.45;
+  border-top: 1px solid var(--uni-border-subtle);
+  border-right: 1px solid var(--uni-border-subtle);
+  border-bottom: 1px solid var(--uni-border-subtle);
+}
+
+.pres-highlight strong {
+  color: var(--uni-blue);
+}
+
+/* Gráficas */
+.pres-img-card {
+  background: #FFFFFF;
+  border: 1px solid var(--uni-border);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(8, 12, 49, 0.03);
+}
+
+.pres-img-caption {
+  font-size: 11.5px;
+  color: var(--uni-text-muted);
+  text-align: center;
+}
+
+/* Tablas de Resultados */
+.pres-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--uni-border);
+}
+
+.pres-table th {
+  background: #F1F5F9;
+  color: var(--uni-blue);
+  font-weight: 800;
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--uni-border);
+}
+
+.pres-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--uni-border-subtle);
+  color: var(--uni-text);
+}
+
+.pres-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Criterios de Selección (Slide 8) */
+.pres-criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pres-criterion {
+  padding: 14px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--uni-border);
+  border-top: 3px solid var(--uni-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(8, 12, 49, 0.02);
+}
+
+.pres-criterion.highlight {
+  border-top-color: var(--uni-gold);
+  background: #FFFDF5;
+}
+
+.pres-criterion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pres-criterion-name {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--uni-night);
+}
+
+.pres-criterion-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #F1F5F9;
+  color: var(--uni-blue);
+  border: 1px solid var(--uni-border);
+}
+
+.pres-criterion-desc {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--uni-text-muted);
+}
+
+/* Barra inferior de navegación (Dock Flotante) */
+.pres-nav-dock {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--uni-border);
+  border-radius: var(--uni-radius-pill);
+  padding: 7px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(8, 12, 49, 0.08);
+  z-index: 102;
+}
+
+.pres-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--uni-radius-pill);
+  border: 1px solid var(--uni-border);
+  background: #F8FAFC;
+  color: var(--uni-text);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pres-nav-btn:hover:not(:disabled) {
+  background: var(--uni-blue);
+  color: #FFFFFF;
+  border-color: var(--uni-blue);
+  transform: translateY(-1px);
+}
+
+.pres-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pres-nav-counter {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  min-width: 55px;
+  text-align: center;
+}
+
+.pres-nav-hint {
+  font-size: 11px;
+  color: var(--uni-text-muted);
+  border-left: 1px solid var(--uni-border);
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pres-kbd {
+  background: #F1F5F9;
+  border: 1px solid var(--uni-border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 10px;
+}
+
+@media (max-width: 1024px) {
+  .pres-cover-layout,
+  .pres-split-grid,
+  .pres-split-grid.uneven-left,
+  .pres-split-grid.uneven-right {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pres-card {
+    padding: 24px;
+  }
+  .pres-criteria-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal Suave y Moderno de Gráficas */
+.pres-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 12, 49, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: presFadeBackdrop 0.25s ease-out forwards;
+}
+
+@keyframes presFadeBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pres-modal-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--uni-border);
+  border-top: 5px solid var(--uni-gold);
+  border-radius: 20px;
+  width: 92vw;
+  max-width: 1180px;
+  height: 84vh;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px -12px rgba(8, 12, 49, 0.35);
+  overflow: hidden;
+  animation: presScaleModal 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes presScaleModal {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.pres-modal-header {
+  padding: 18px 28px 14px;
+  border-bottom: 1.5px solid var(--uni-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #FFFFFF;
+}
+
+.pres-modal-tag {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--uni-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.pres-modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--uni-night);
+  margin: 4px 0 2px;
+}
+
+.pres-modal-sub {
+  font-size: 13px;
+  color: var(--uni-text-muted);
+  margin: 0;
+}
+
+.pres-modal-close-btn {
+  padding: 6px 14px;
+  border-radius: var(--uni-radius-pill);
+  border: 1.5px solid var(--uni-border);
+  background: #F8FAFC;
+  color: #080C31;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pres-modal-close-btn:hover {
+  background: #FEE2E2;
+  border-color: #F87171;
+  color: #991B1B;
+  transform: translateY(-1px);
+}
+
+.pres-modal-chart-body {
+  flex: 1;
+  padding: 16px 28px 10px;
+  background: #FFFFFF;
+  min-height: 0;
+}
+
+.pres-modal-footer {
+  padding: 12px 28px;
+  background: #F8FAFC;
+  border-top: 1.5px solid var(--uni-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--uni-text-muted);
+}
+
+/* Botón moderno para agrandar dentro de cada tarjeta de gráfica */
+.pres-img-card {
+  position: relative;
+}
+
+.pres-expand-chart-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 4px 11px;
+  border-radius: var(--uni-radius-pill);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid var(--uni-border);
+  color: var(--uni-blue);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(8, 12, 49, 0.08);
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.pres-expand-chart-btn:hover {
+  background: var(--uni-blue);
+  color: #FFFFFF;
+  border-color: var(--uni-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 70, 143, 0.25);
+}
