@@ -253,7 +253,7 @@ export default function App() {
         <Kpi
           etiqueta="Error final"
           valor={sol.datos ? exp(sol.datos.error_final) : "—"}
-          detalle={`${nombreMetodo} · h = ${h} · t = ${tf}`}
+          detalle={`h = ${h} · t = ${tf}`}
         />
         <Kpi etiqueta="Orden estimado" valor={ordenes} detalle="Euler · Heun · RK4" />
         <Kpi etiqueta="Energía Euler" valor={energiaEuler} detalle="Exacta: 0.5" />
